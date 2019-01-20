@@ -42,12 +42,14 @@ from PIL import ImageFont, ImageDraw, Image
 
 import pandas as pd
 import requests
+from django.views.decorators.csrf import csrf_exempt
 
 def hex_to_rgb(value):
     value = value.lstrip('#')
     lv = len(value)
     return tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
+@csrf_exempt
 def start(request):
     if request.method == 'GET':
         # URL = 'https://s3.eu-central-1.amazonaws.com/cdn.facetoapp.com/media/faces/2019-01-16_121717.7474150000.jpg'
@@ -66,6 +68,7 @@ def start(request):
         #
         return render(request, 'pdf_create/start.html')
 
+@csrf_exempt
 def generate_pdf(request):
     if request.is_ajax() and request.POST:
         #open IMG
