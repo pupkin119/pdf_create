@@ -1,0 +1,1 @@
+web: gunicorn pdfcreate.wsgi --log-file -
