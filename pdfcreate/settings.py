@@ -24,10 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'suz)phuujjj%22i@$mjprct=9o($&(^m8%h@knl#*2($b*^qg='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -155,3 +152,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'faceappmailer@gmail.com'
+EMAIL_HOST_PASSWORD = 'Fuck_Off!'
+EMAIL_PORT = 587
