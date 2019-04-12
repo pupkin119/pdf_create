@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import json
 
 from rest_framework_jwt.serializers import jwt_payload_handler
 import jwt
@@ -9,6 +10,8 @@ from rest_framework.decorators import api_view, schema
 import numpy as np
 
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
+from django.urls import reverse
 
 # read env
 import environ
@@ -66,7 +69,8 @@ def start(request):
         #
         # ImageFont.truetype(f1, 13)
         #
-        return render(request, 'pdf_create/start.html')
+        # return render(request, 'pdf_create/login.html')
+        return render(request, 'pdf_create/signin.html')
 
 @csrf_exempt
 def generate_pdf(request):
@@ -101,7 +105,7 @@ def generate_pdf(request):
         font = ImageFont.truetype(font_byte, 13)
 
         draw.text((10, 10), data_csv['Country'][0], font=font, fill=(0, 0, 0, 255))
-        img.save('123.jpg', format='jpeg')
+        img.save('imgs/123.jpg', format='jpeg')
 
 
 
@@ -110,12 +114,158 @@ def generate_pdf(request):
         # msg.attach_file('pdfs/Instructions.pdf')
         # msg.send()
 
-        subject, from_email, to = 'confirm your email', 'faceappmailer@gmail.com', 'pupkin11999@gmail.com'
-        text_content = 'Confirmation of registration'
-        html_content = 'Confirm Registretion'
-        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        msg.attach_alternative(html_content, "text/html")
-        msg.attach_file('123.jpg')
-        msg.send()
+        # subject, from_email, to = 'confirm your email', 'faceappmailer@gmail.com', 'pupkin11999@gmail.com'
+        # text_content = 'Confirmation of registration'
+        # html_content = 'Confirm Registretion'
+        # msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        # msg.attach_alternative(html_content, "text/html")
+        # msg.attach_file('123.jpg')
+        # msg.send()
 
         return render(request, 'pdf_create/start.html')
+
+@csrf_exempt
+def login(request):
+    if request.method == "POST":
+        # return HttpResponseRedirect(reverse('simple_pdf:login'))
+        return render(request, 'pdf_create/index.html')
+    if request.method == "GET":
+        # return HttpResponseRedirect(reverse('simple_pdf:login'))
+        return render(request, 'pdf_create/index.html')
+
+@csrf_exempt
+def cutaway(request):
+    if request.method == "GET":
+        # return render(request, 'pdf_create/carousel.html')
+        return render(request, 'pdf_create/choose.html')
+        # return HttpResponseRedirect(reverse('simple_pdf:cau')
+from textwrap import wrap
+from wand.color import Color
+from wand.drawing import Drawing
+from wand.image import Image
+draw = Drawing()
+from PIL import Image as PILImage
+
+import uuid
+import pathlib
+import shutil
+
+
+
+@csrf_exempt
+def manual_pdf(request):
+    if request.is_ajax() and request.POST:
+        names = request.POST.getlist("names[]")
+        courses = request.POST.getlist("courses[]")
+
+
+        page_images = []
+        rand_uuid = uuid.uuid4()
+
+        pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+        pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+        for i in np.arange(len(courses)):
+            draw = Drawing()
+            with Image(filename='imgs/Франч.jpg') as image:
+                draw.font = 'open-sans/OpenSans-LightItalic.ttf'
+                draw.font_size = 25
+                draw.fill_color = Color('#221e1f')
+                draw.text(234, 998, names[i])
+                draw.text(234, 1322, courses[i])
+                draw.text(234, 1724, '5')
+                draw(image)
+
+                image.save(filename='imgs/'+str(rand_uuid)+'/img_' + str(i) + '.jpg')
+
+        im1 = PILImage.open("imgs/" + str(rand_uuid) + "/img_0.jpg")
+
+        for i in np.arange(1, len(names)):
+            im2 = PILImage.open("imgs/"+str(rand_uuid)+"/img_" + str(i) +".jpg")
+            page_images.append(im2)
+
+        shutil.rmtree('imgs/' + str(rand_uuid))
+
+        pdf1_filename = "pdfs/" + str(rand_uuid) + "/cutway.pdf"
+
+        im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
+
+
+
+        data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
+
+        return HttpResponse(data, content_type='application/json')
+
+@csrf_exempt
+def manual(request):
+    if request.method == "GET":
+        return render(request, 'pdf_create/manual.html')
+        # return HttpResponseRedirect(reverse('simple_pdf:cau')
+
+@csrf_exempt
+def exel(request):
+    if request.method == "GET":
+        return render(request, 'pdf_create/exel.html')
+        # return HttpResponseRedirect(reverse('simple_pdf:cau')
+
+from django.shortcuts import render
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+import os
+
+@csrf_exempt
+def upload_exel(request):
+    if request.method == 'POST' and request.FILES['file']:
+
+        myfile = request.FILES['file']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        # uploaded_file_url = fs.url(filename)
+        # print(uploaded_file_url)
+
+        rand_uuid = uuid.uuid4()
+        pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+        pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+
+        data = pd.read_csv(myfile.name, sep=';')
+
+        for i in np.arange(data.count()[0]):
+
+            name = data[data.columns[0]][i]
+            course = data[data.columns[1]][i]
+
+            draw = Drawing()
+            with Image(filename='imgs/Франч.jpg') as image:
+                draw.font = 'open-sans/OpenSans-LightItalic.ttf'
+                draw.font_size = 25
+                draw.fill_color = Color('#221e1f')
+                draw.text(234, 998, name)
+                draw.text(234, 1322, course)
+                draw.text(234, 1724, '5')
+                draw(image)
+
+                image.save(filename='imgs/' + str(rand_uuid) +'/img_' + str(i) + '.jpg')
+
+        page_images = []
+        for i in np.arange(1, data.count()[0]):
+            im2 = PILImage.open("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg")
+            page_images.append(im2)
+
+        pdf1_filename = "pdfs/" + str(rand_uuid) + "/cutway.pdf"
+
+        im1 = PILImage.open("imgs/" + str(rand_uuid) + "/img_0.jpg")
+
+        im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
+
+        shutil.rmtree('imgs/' + str(rand_uuid))
+        os.remove(myfile.name)
+
+        data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
+
+        # data = json.dumps({'success': uploaded_file_url})
+        return HttpResponse(data, content_type='application/json')
+
+
+@csrf_exempt
+def preview(request, prev_uuid):
+    if request.method == "GET":
+        return render(request, 'pdf_create/preview.html', {"prev_uuid": prev_uuid})

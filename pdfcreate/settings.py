@@ -153,6 +153,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+MEDIA_ROOT = '/Users/aleksej/pdfcre/django_app/pdfcreate/'
+
+MEDIA_URL = '/media/'
+
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'faceappmailer@gmail.com'
