@@ -9,12 +9,21 @@ from rest_framework.decorators import api_view, schema
 
 import numpy as np
 
+import django_rq
+from datetime import timedelta
+from django.utils import timezone
+
+import django_rq
+scheduler = django_rq.get_scheduler('default')
+
+
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
 # read env
 import environ
+from simple_pdf.tasks import delete_later_pdf
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -189,7 +198,7 @@ def manual_pdf(request):
 
         im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
 
-
+        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
 
         data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
 
@@ -258,6 +267,8 @@ def upload_exel(request):
 
         shutil.rmtree('imgs/' + str(rand_uuid))
         os.remove(myfile.name)
+
+        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
 
         data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
 

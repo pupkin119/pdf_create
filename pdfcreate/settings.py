@@ -13,8 +13,13 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import psycopg2
 import datetime
-import dj_database_url
+# import dj_database_url
 import environ
+
+env = environ.Env(
+    DEBUG=(bool, True)
+)
+environ.Env.read_env('.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +34,7 @@ SECRET_KEY = 'suz)phuujjj%22i@$mjprct=9o($&(^m8%h@knl#*2($b*^qg='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'simple-create-pdf.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'simple-create-pdf.herokuapp.com', '10.36.147.159', 'logotype.lvdsgn.com']
 
 
 # Application definition
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'simple_pdf.apps.SimplePdfConfig',
+    'django_rq'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +61,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#EMAIL SETTINGS
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'faceappmailer@gmail.com'
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+
+
 ROOT_URLCONF = 'pdfcreate.urls'
 
 REST_FRAMEWORK = {
@@ -67,6 +81,34 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
+
+JWT_AUTH = {
+
+    'JWT_VERIFY': True,
+    'JWT_VERIFY_EXPIRATION': True,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=30000000),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+
+}
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': 'localhost',
+        'PORT': 6380,
+        'DB': 4,
+        # 'PASSWORD': '123123123',
+        'DEFAULT_TIMEOUT': 360,
+    },
+    'low': {
+        'HOST': 'localhost',
+        'PORT': 6380,
+        'DB': 4,
+        # 'PASSWORD': env('REDIS_PASSWORD'),
+    }
+}
+
+RQ_SHOW_ADMIN_LINK = True
+
 
 TEMPLATES = [
     {
@@ -95,14 +137,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pdf_create',
         'USER': 'developer',
-        # 'PASSWORD' : 'password',
+        'PASSWORD' : '123123123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -144,7 +186,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -157,8 +199,4 @@ MEDIA_ROOT = '/Users/aleksej/pdfcre/django_app/pdfcreate/'
 
 MEDIA_URL = '/media/'
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'faceappmailer@gmail.com'
-EMAIL_HOST_PASSWORD = 'Fuck_Off!'
-EMAIL_PORT = 587
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
