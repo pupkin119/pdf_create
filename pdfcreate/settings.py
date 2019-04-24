@@ -94,14 +94,14 @@ JWT_AUTH = {
 RQ_QUEUES = {
     'default': {
         'HOST': 'localhost',
-        'PORT': 6380,
+        'PORT': 6379,
         'DB': 4,
         # 'PASSWORD': '123123123',
         'DEFAULT_TIMEOUT': 360,
     },
     'low': {
         'HOST': 'localhost',
-        'PORT': 6380,
+        'PORT': 6379,
         'DB': 4,
         # 'PASSWORD': env('REDIS_PASSWORD'),
     }
