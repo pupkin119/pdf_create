@@ -34,7 +34,7 @@ SECRET_KEY = 'suz)phuujjj%22i@$mjprct=9o($&(^m8%h@knl#*2($b*^qg='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'simple-create-pdf.herokuapp.com', '10.36.147.159', 'logotype.lvdsgn.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'simple-create-pdf.herokuapp.com', 'www.uplatform.lvdsgn.com', 'www.logotype.lvdsgn.com', '139.59.213.238']
 
 
 # Application definition
@@ -195,7 +195,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = '/Users/aleksej/pdfcre/django_app/pdfcreate/'
+# MEDIA_ROOT = '/Users/aleksej/pdfcre/django_app/pdfcreate/'
+MEDIA_ROOT = BASE_DIR
 
 MEDIA_URL = '/media/'
 
