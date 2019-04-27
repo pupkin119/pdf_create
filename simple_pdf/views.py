@@ -220,8 +220,8 @@ def manual_pdf(request):
 
         im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
 
-        # scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
-        scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
+        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+        # scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
 
         data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
 
@@ -299,8 +299,8 @@ def upload_exel(request):
         shutil.rmtree('imgs/' + str(rand_uuid))
         os.remove(myfile.name)
 
-        # scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
-        scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
+        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+        # scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
 
         data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
 
