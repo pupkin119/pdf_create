@@ -25,15 +25,12 @@ var row = 1;
 var num = 1;
 
 function generate_row() {
-
-    // row = row + 1;
-
     var text = "<row id='row_'" + row + ">";
     text += "</row>";
 
     var before_row = parseInt(row) - 1;
 
-    $('#row_' + before_row).append(text);
+    $('#row_' + before_row).append(text)
 }
 
 function generate_card() {
@@ -149,27 +146,9 @@ function generate_card() {
 
 }
 
-function delete_row() {
-
-    $('#row_' + row).remove();
-    row = row - 1;
-}
-
 function delete_card() {
-        var prev_num = num - 2;
-        var current = num - 1;
-    // $('#btn_add_' + prev_num).addClass('scale-transition scale-out');
-    // $('#btn_remove_' + prev_num).addClass('scale-transition scale-out');
-    $('#btn_add_' + prev_num).removeClass('scale-out');
-    $('#btn_remove_' + prev_num).removeClass('scale-out');
 
-    $('#col_elem_' + current).remove();
 
-    num = num - 1;
-
-    // if (num % 4) {
-    //     delete_row();
-    // }
 
 }
 
@@ -199,7 +178,6 @@ $(document).ready(function () {
 function generate_manual_pdf() {
     var names = [];
     var courses = [];
-
     $('#progress_manual').show();
 
     if (!($('#town').val())) {
@@ -222,9 +200,6 @@ function generate_manual_pdf() {
         names.push($('#name_' + i).val());
         courses.push($('#course_' + i).val());
     }
-
-    var town = $('#town').val();
-
     var location = window.location.hostname;
     var new_url = location + '/preview/';
 
@@ -236,8 +211,7 @@ function generate_manual_pdf() {
         data: {
             'csrfmiddlewaretoken': getCookie('csrftoken'),
             names: names,
-            courses: courses,
-            town: town
+            courses: courses
         },
         dataType: 'json',
         success: function (data) {

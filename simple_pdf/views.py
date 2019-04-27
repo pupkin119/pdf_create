@@ -1,25 +1,25 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 import json
 
-from rest_framework_jwt.serializers import jwt_payload_handler
-import jwt
-from django.contrib.auth.hashers import Argon2PasswordHasher
+# from rest_framework_jwt.serializers import jwt_payload_handler
+# import jwt
+# from django.contrib.auth.hashers import Argon2PasswordHasher
+#
+# from rest_framework.decorators import api_view, schema
 
-from rest_framework.decorators import api_view, schema
+# import numpy as np
 
-import numpy as np
-
-import django_rq
+# import django_rq
 from datetime import timedelta
-from django.utils import timezone
+# from django.utils import timezone
 
 import django_rq
 scheduler = django_rq.get_scheduler('default')
 
 
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
+# from django.urls import reverse
 
 # read env
 import environ
@@ -32,18 +32,18 @@ environ.Env.read_env('.env')
 
 # Create your views here.
 
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.generics import RetrieveUpdateAPIView
-from rest_framework.decorators import permission_classes
+# from rest_framework.permissions import AllowAny, IsAuthenticated
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# from rest_framework import status
+# from rest_framework.generics import RetrieveUpdateAPIView
+# from rest_framework.decorators import permission_classes
 
 # MAILER
-from django.core.mail import EmailMultiAlternatives
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
+# from django.core.mail import EmailMultiAlternatives
+# from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
-from django.core.mail import EmailMessage
+# from django.core.mail import EmailMessage
 # Create your views here.
 
 from urllib.request import urlopen
@@ -55,6 +55,21 @@ from PIL import ImageFont, ImageDraw, Image
 import pandas as pd
 import requests
 from django.views.decorators.csrf import csrf_exempt
+
+def transform_name(name):
+    if len(name) >= 21:
+        name_list = name.split()
+        name = name_list[0] + " " +name_list[1] + " \n" + name_list[2]
+        return name
+    else:
+        return name
+
+def transform_nameV2(s, n):
+    l = s.split()
+    for i in range(1, len(l)+1):
+        if sum(map(len, l[:i])) + i - 1 > n:
+            return ' '.join(l[:i-1]) + " \n" + ' '.join(l[i-1:])
+    return s
 
 def hex_to_rgb(value):
     value = value.lstrip('#')
@@ -166,7 +181,7 @@ def manual_pdf(request):
     if request.is_ajax() and request.POST:
         names = request.POST.getlist("names[]")
         courses = request.POST.getlist("courses[]")
-
+        town = request.POST['town']
 
         page_images = []
         rand_uuid = uuid.uuid4()
@@ -175,13 +190,20 @@ def manual_pdf(request):
         pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
         for i in np.arange(len(courses)):
             draw = Drawing()
-            with Image(filename='imgs/Франч.jpg') as image:
-                draw.font = 'open-sans/OpenSans-LightItalic.ttf'
-                draw.font_size = 25
-                draw.fill_color = Color('#221e1f')
-                draw.text(234, 998, names[i])
-                draw.text(234, 1322, courses[i])
-                draw.text(234, 1724, '5')
+            with Image(filename='imgs/sertf20.jpg') as image:
+                draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
+                draw.font_size = 186
+                draw.fill_color = Color('#333333')
+                # name = transform_name(names[i])
+                name = transform_nameV2(names[i], 21)
+                draw.text(340, 2385, name)
+                draw.text(340, 3173, courses[i])
+                draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
+                draw.font_size = 100
+                draw.text(684, 5105, town)
+
+
+                # draw.viewbox(340, 2385, 340 + 2300, 2385 + 400)
                 draw(image)
 
                 image.save(filename='imgs/'+str(rand_uuid)+'/img_' + str(i) + '.jpg')
@@ -198,7 +220,8 @@ def manual_pdf(request):
 
         im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
 
-        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+        # scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+        scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
 
         data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
 
@@ -228,6 +251,8 @@ def upload_exel(request):
         myfile = request.FILES['file']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
+        # town = request.POST['town']
+        # print(request.POST['town'])
         # uploaded_file_url = fs.url(filename)
         # print(uploaded_file_url)
 
@@ -235,21 +260,27 @@ def upload_exel(request):
         pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
         pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
 
-        data = pd.read_csv(myfile.name, sep=';')
+        data = pd.read_csv(myfile.name)
 
         for i in np.arange(data.count()[0]):
 
             name = data[data.columns[0]][i]
             course = data[data.columns[1]][i]
+            town = data[data.columns[2]][i]
 
             draw = Drawing()
-            with Image(filename='imgs/Франч.jpg') as image:
-                draw.font = 'open-sans/OpenSans-LightItalic.ttf'
-                draw.font_size = 25
-                draw.fill_color = Color('#221e1f')
-                draw.text(234, 998, name)
-                draw.text(234, 1322, course)
-                draw.text(234, 1724, '5')
+            with Image(filename='imgs/sertf20.jpg') as image:
+                draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
+                draw.font_size = 186
+                draw.fill_color = Color('#333333')
+                # name = transform_name(name)
+                name = transform_nameV2(name, 21)
+                course = transform_nameV2(course, 21)
+                draw.text(340, 2385, name)
+                draw.text(340, 3173, course)
+                draw.font_size = 100
+                draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
+                draw.text(684, 5105, town)
                 draw(image)
 
                 image.save(filename='imgs/' + str(rand_uuid) +'/img_' + str(i) + '.jpg')
@@ -268,7 +299,8 @@ def upload_exel(request):
         shutil.rmtree('imgs/' + str(rand_uuid))
         os.remove(myfile.name)
 
-        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+        # scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+        scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
 
         data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
 

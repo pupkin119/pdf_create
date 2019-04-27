@@ -1,3 +1,8 @@
+$(document).ready(function () {
+    $('.tooltipped').tooltip();
+});
+
+
 function to_manual() {
     var location1 = window.location.hostname;
     var new_url = location1 + '/manual';

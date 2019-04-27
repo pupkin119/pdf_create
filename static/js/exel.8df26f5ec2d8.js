@@ -20,17 +20,10 @@ function getCookie(name) {
 
 function upload() {
 
-    // if (!($('#town').val())) {
-    //     M.toast({html: 'Заполните город!'});
-    //     $('#progress_manual').hide();
-    //     return;
-    // }
-
     $('#progress_manual').show();
     var fd = new FormData();
     var files = $('#file')[0].files[0];
-    fd.append('file', files);
-    // fd.append('town', $('#town').val());
+    fd.append('file',files);
 
 // $.ajax({
 //     csrfmiddlewaretoken: getCookie('csrftoken'),
@@ -48,8 +41,8 @@ function upload() {
 // location = window.location.hostname;
 // var new_url = location + '/preview/';
 
-    var href = '/upload_exel';
-    $.ajax({
+var href = '/upload_exel';
+$.ajax({
         type: "post",
         url: href,
         async: true,
@@ -66,5 +59,5 @@ function upload() {
 
     });
 
-    return false;
+return false;
 }

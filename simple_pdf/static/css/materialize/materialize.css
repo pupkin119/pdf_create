@@ -5329,6 +5329,12 @@ small {
   bottom: 100px;
 }
 
+.btn-floating.halfway-right-bottom {
+  position: absolute;
+  right: -24px;
+  bottom: 40px;
+}
+
 .btn-floating.halfway-fab.left {
   right: auto;
   left: 24px;

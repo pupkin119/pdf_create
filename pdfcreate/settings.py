@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'suz)phuujjj%22i@$mjprct=9o($&(^m8%h@knl#*2($b*^qg='
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,14 +94,14 @@ JWT_AUTH = {
 RQ_QUEUES = {
     'default': {
         'HOST': 'localhost',
-        'PORT': 6379,
+        'PORT': env('PORT'),
         'DB': 4,
         # 'PASSWORD': '123123123',
         'DEFAULT_TIMEOUT': 360,
     },
     'low': {
         'HOST': 'localhost',
-        'PORT': 6379,
+        'PORT': env('PORT'),
         'DB': 4,
         # 'PASSWORD': env('REDIS_PASSWORD'),
     }

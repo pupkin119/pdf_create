@@ -45,6 +45,23 @@
     <h5 class="center-align"> Заполни поля</h5>
 </div>
 
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <i class="material-icons prefix">add_location</i>
+                <input id="town" type="text" name="town" class="validate">
+                <label for="icon_prefix">Введите город</label>
+            </div>
+            {#        <div class="input-field col s6">#}
+            {#          <i class="material-icons prefix">phone</i>#}
+            {#          <input id="icon_telephone" type="tel" class="validate">#}
+            {#          <label for="icon_telephone">Telephone</label>#}
+            {#        </div>#}
+        </div>
+    </div>
+</div>
+
 <div class="section">
 
     <div class="row" id="row_1">
@@ -87,7 +104,7 @@
   align-items: center;
   justify-content: center;">
     <div class="row" style="bottom: 10%;">
-        <a class="waves-effect waves-light btn-large red lighten-1" style=" border-radius: 18px;"
+        <a class="waves-effect waves-light btn-large logtype-btn" style=" background: #3205F3;"
            onclick="generate_manual_pdf();">Перейти дальше</a>
 
         <div class="progress" id="progress_manual" style="display: none">
@@ -96,7 +113,29 @@
 
 
     </div>
+
+{#    <div class="row">#}
+{#        <div class="col s12 m6">#}
+{#            <div class="card">#}
+{#                <div class="card-image">#}
+{#                    <img src="https://cdn.endeavorco.com/joyent.wme/public/wme/assets/6128a9b2-7ada-11e6-96e0-8905cd656caf.jpg?v=20">#}
+{#                    <span class="card-title">Card Title</span>#}
+{#                    <a class="btn-floating halfway-fab waves-effect waves-light red float"><i#}
+{#                            class="material-icons">add</i></a>#}
+{#                    <a class="btn-floating halfway-right waves-effect waves-light red float"><i#}
+{#                            class="material-icons">add</i></a>#}
+{#                </div>#}
+{#                <div class="card-content">#}
+{#                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient#}
+{#                        because I require little markup to use effectively.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
 </div>
+
+{% include 'pdf_create/shared/google_analitics.html' %}
 
 </body>
 

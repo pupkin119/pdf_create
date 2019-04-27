@@ -14,29 +14,33 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function get_next() {
-    var elem = $('#carousel');
-
-    var instance = M.Carousel.getInstance(elem);
-    instance.next();
-}
+// function get_next() {
+//     var elem = $('#carousel');
+//
+//     var instance = M.Carousel.getInstance(elem);
+//     instance.next();
+// }
 
 var row = 1;
 var num = 1;
 
 function generate_row() {
+
+    // row = row + 1;
+
     var text = "<row id='row_'" + row + ">";
     text += "</row>";
 
     var before_row = parseInt(row) - 1;
 
-    $('#row_' + before_row).append(text)
+    $('#row_' + before_row).append(text);
 }
 
 function generate_card() {
     var prev_num = num - 1;
     // $('#btn_add_' + prev_num).addClass('disabled');
     $('#btn_add_' + prev_num).addClass('scale-transition scale-out');
+    $('#btn_remove_' + prev_num).addClass('scale-transition scale-out');
 
     var elem = $("#row_" + row);
     // var text = "<div class=\"card\" style=\"width: 18rem;\" id='card_elem_"+ num +"'>";
@@ -105,8 +109,10 @@ function generate_card() {
     var text = "<div class=\"col l3\" id='col_elem_" + num + "'>\n" +
         "                <div class=\"card hoverable\">\n" +
         "                    <span class=\"card-title\" style='padding-left: 20px;'>#" + num + "</span>\n" +
-        "                    <a class=\"btn-floating halfway-right waves-effect waves-light red\" id='btn_add_" + num + "'><i\n" +
+        "                    <a class=\"btn-floating halfway-right waves-effect\" style='background: #3205F3;' id='btn_add_" + num + "'><i\n" +
         "                            class=\"material-icons\"  onclick='generate_card()'>add</i></a>\n" +
+        "                    <a class=\"btn-floating halfway-right-bottom waves-effect\" style='background: #3205F3;' id='btn_remove_" + num + "'><i\n" +
+        "                            class=\"material-icons\"  onclick='delete_card()'>remove</i></a>\n" +
         "                    <div class=\"card-body\">\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"input-field col m11\" >\n" +
@@ -143,6 +149,30 @@ function generate_card() {
 
 }
 
+function delete_row() {
+
+    $('#row_' + row).remove();
+    row = row - 1;
+}
+
+function delete_card() {
+        var prev_num = num - 2;
+        var current = num - 1;
+    // $('#btn_add_' + prev_num).addClass('scale-transition scale-out');
+    // $('#btn_remove_' + prev_num).addClass('scale-transition scale-out');
+    $('#btn_add_' + prev_num).removeClass('scale-out');
+    $('#btn_remove_' + prev_num).removeClass('scale-out');
+
+    $('#col_elem_' + current).remove();
+
+    num = num - 1;
+
+    // if (num % 4) {
+    //     delete_row();
+    // }
+
+}
+
 function manual() {
 
     // $('#row_1').hide();
@@ -162,13 +192,22 @@ function manual() {
 }
 
 $(document).ready(function () {
+    $('.tooltipped').tooltip();
     generate_card();
 });
 
 function generate_manual_pdf() {
     var names = [];
     var courses = [];
+
     $('#progress_manual').show();
+
+    if (!($('#town').val())) {
+        M.toast({html: 'Заполните город!'});
+        $('#progress_manual').hide();
+        return;
+    }
+
     for (i = 1; i < num; i++) {
         if (!($('#name_' + i).val())) {
             M.toast({html: 'Заполните все имена!'});
@@ -183,6 +222,9 @@ function generate_manual_pdf() {
         names.push($('#name_' + i).val());
         courses.push($('#course_' + i).val());
     }
+
+    var town = $('#town').val();
+
     var location = window.location.hostname;
     var new_url = location + '/preview/';
 
@@ -194,7 +236,8 @@ function generate_manual_pdf() {
         data: {
             'csrfmiddlewaretoken': getCookie('csrftoken'),
             names: names,
-            courses: courses
+            courses: courses,
+            town: town
         },
         dataType: 'json',
         success: function (data) {
