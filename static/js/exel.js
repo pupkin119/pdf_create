@@ -27,6 +27,7 @@ function upload() {
     // }
 
     $('.progress').show();
+    $('#progress_manual_text').show();
     var fd = new FormData();
     var files = $('#file')[0].files[0];
     fd.append('file', files);
@@ -59,6 +60,7 @@ function upload() {
         contentType: false,
         success: function (data) {
             $('#progress').hide();
+            $('#progress_manual_text').hide();
             // alert('yes');
             window.location = /preview/ + data['success'];
 
