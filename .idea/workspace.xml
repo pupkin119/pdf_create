@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="43b53538-a605-4bca-98bf-d0b126f01dc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfcreate/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdfcreate/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/6d0378bb-58d0-478a-a783-353d034cbd5f/cutway.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/c630c5ce-4541-42ad-891f-85807388c5b1/cutway.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/d41ac047-9521-47fd-9c97-878abd99932a/cutway.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/ffcb7d15-644f-476f-8f40-e3a61e12f2c2/cutway.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_pdf/static/js/exel.js" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/static/js/exel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/exel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/exel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/exel.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/exel.js.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +32,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="82" />
-          <entry key="env" value="24" />
+          <entry key="env" value="27" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="4313" />
           <entry key="js" value="3420" />
@@ -55,7 +44,7 @@
           <entry key="CSS" value="82" />
           <entry key="HTML" value="4314" />
           <entry key="JavaScript" value="3419" />
-          <entry key="PLAIN_TEXT" value="26" />
+          <entry key="PLAIN_TEXT" value="29" />
           <entry key="Python" value="2754" />
         </counts>
       </usages-collector>
@@ -94,10 +83,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdfcreate/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
+            <state relative-caret-position="1435">
               <caret line="140" column="28" selection-start-line="140" selection-start-column="28" selection-end-line="140" selection-end-column="28" />
               <folding>
                 <element signature="e#310#319#0" expanded="true" />
@@ -134,7 +123,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
@@ -154,7 +143,7 @@
         <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/preview.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="554">
-              <caret line="51" column="28" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="28" />
+              <caret line="51" column="28" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -245,9 +234,9 @@
         <option value="$PROJECT_DIR$/simple_pdf/views.py" />
         <option value="$PROJECT_DIR$/simple_pdf/tasks.py" />
         <option value="$PROJECT_DIR$/pdfcreate/settings.py" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/simple_pdf/static/js/exel.js" />
         <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -670,23 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdfcreate/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="140" column="28" selection-start-line="140" selection-start-column="28" selection-end-line="140" selection-end-column="28" />
-          <folding>
-            <element signature="e#310#319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/exel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -697,7 +669,7 @@
     <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/preview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="554">
-          <caret line="51" column="28" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="28" />
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -714,6 +686,23 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfcreate/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1435">
+          <caret line="140" column="28" selection-start-line="140" selection-start-column="28" selection-end-line="140" selection-end-column="28" />
+          <folding>
+            <element signature="e#310#319#0" expanded="true" />
           </folding>
         </state>
       </provider>
