@@ -28,9 +28,11 @@ function upload() {
 
     $('.progress').show();
     $('#progress_manual_text').show();
+    $('#btn_upload').addClass('disabled');
     var fd = new FormData();
     var files = $('#file')[0].files[0];
     fd.append('file', files);
+
     // fd.append('town', $('#town').val());
 
 // $.ajax({

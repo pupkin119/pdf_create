@@ -29,4 +29,16 @@ class Design(models.Model):
             return ''
 
 
+class Shops(models.Model):
+    payment = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.payment
+
+
+class Sertificates(models.Model):
+    payment = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.payment)
 

@@ -16,6 +16,8 @@ from datetime import timedelta
 import django_rq
 scheduler = django_rq.get_scheduler('default')
 
+from .models import Sertificates
+
 
 # from django.http import HttpResponse
 from django.http import HttpResponseRedirect, HttpResponse
@@ -186,6 +188,10 @@ def manual_pdf(request):
         page_images = []
         rand_uuid = uuid.uuid4()
 
+        s = Sertificates.objects.first()
+        s.payment = s.payment + len(courses)
+        s.save()
+
         pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
         pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
         for i in np.arange(len(courses)):
@@ -261,6 +267,10 @@ def upload_exel(request):
         pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
 
         data = pd.read_csv(myfile.name)
+
+        s = Sertificates.objects.first()
+        s.payment = s.payment + data.count()[0]
+        s.save()
 
         for i in np.arange(data.count()[0]):
 

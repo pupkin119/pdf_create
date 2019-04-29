@@ -227,6 +227,8 @@ function generate_manual_pdf() {
         courses.push($('#course_' + i).val());
     }
 
+    $('#btn_upload').addClass('disabled');
+
     var town = $('#town').val();
 
     var location = window.location.hostname;
