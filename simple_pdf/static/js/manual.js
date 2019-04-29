@@ -196,7 +196,7 @@ function manual() {
 }
 
 $(document).ready(function () {
-    $('.tooltipped').tooltip();
+    // $('.tooltipped').tooltip();
     generate_card();
 });
 

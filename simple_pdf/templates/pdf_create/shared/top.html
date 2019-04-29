@@ -1,3 +1,5 @@
+{% load static %}
+<script src="{% static 'js/modal.js' %}" type="text/javascript"></script>
 <div class="row">
     <div class="footer">
         <nav>
@@ -52,19 +54,92 @@
                            href="https://docs.google.com/spreadsheets/d/1RONBSv4eKbE_QRFZNOb2GhV-8yHeqh1QzyD7QNmofkQ/edit?usp=sharing"
                            style="color: black;">Шаблон таблицы</a>
                     </li>
-                    <li><a class="btn tooltipped btn-flat" data-position="bottom"
-                           data-tooltip="«Юниум платформа — сервис, где ты можешь сделать выпускные сертификаты для своего ОЦ. &#10;
-Инструкция:
-
-Если надо сделать срочно несколько сертификатов, нажимай «Сделать несколько вручную».
-
-Если сертификаты нужны для всего ОЦ или всего города:
-Нажимай «Шаблон таблицы», скопируй таблицу себе, заполняй
-После заполнения нажимай «Файл» — «Скачать CSV файл»
-На сайте платформы нажимай «Загрузить CSV с данными»
-Загружай свой csv файл и генерируй сертификаты!»
-" style="color: black;">Что это?</a>
+                    <li><a class="btn tooltipped btn-flat modal-trigger" id="moodal"
+                            {#                           data-position="bottom"#}
+                            {#                           data-tooltip="«Юниум платформа — сервис, где ты можешь сделать выпускные сертификаты для своего ОЦ. &#10;#}
+                            {#                            Инструкция:#}
+                            {#                            #}
+                            {#                            Если надо сделать срочно несколько сертификатов, нажимай «Сделать несколько вручную».#}
+                            {#                            #}
+                            {#                            Если сертификаты нужны для всего ОЦ или всего города:#}
+                            {#                            Нажимай «Шаблон таблицы», скопируй таблицу себе, заполняй#}
+                            {#                            После заполнения нажимай «Файл» — «Скачать CSV файл»#}
+                            {#                            На сайте платформы нажимай «Загрузить CSV с данными»#}
+                            {#                            Загружай свой csv файл и генерируй сертификаты!»" #}
+                           href="#modal1"
+                           style="color: black;">Что это?</a>
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h5 style="color: black;
+                                font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">
+                                    Юниум платформа — сервис, где ты можешь сделать выпускные
+                                    сертификаты для своего ОЦ.</h5>
+                                <h4 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 30px;
+                                    line-height: 140.62%;">Инструкция:</h4>
+                                <h5 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">Если надо сделать срочно несколько сертификатов, нажимай
+                                    «Сделать несколько вручную».
+                                </h5>
+                                <h5 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">Если сертификаты нужны для всего ОЦ или всего города:
+                                </h5>
+                                <h5 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">
+                                    1. Нажимай «Шаблон таблицы», скопируй таблицу себе, заполняй
+                                </h5>
+                                <h5 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">
+                                    2. После заполнения нажимай «Файл» — «Скачать CSV файл»
+                                </h5>
+                                <h5 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">
+                                    3. На сайте платформы нажимай «Загрузить CSV с данными»
+                                </h5>
+                                <h5 style="color: black;
+                                    font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 25px;
+                                    line-height: 140.62%;">
+                                    4. Загружай свой csv файл и генерируй сертификаты!
+                                </h5>
+                                {#                                <p>A bunch of text</p>#}
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Понятно</a>
+                            </div>
+                        </div>
                     </li>
+
+
                 </ul>
             </div>
         </nav>

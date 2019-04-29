@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.tooltipped').tooltip();
+    // $('.tooltipped').tooltip();
 });
 
 function to_manual() {
