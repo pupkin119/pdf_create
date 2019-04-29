@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43b53538-a605-4bca-98bf-d0b126f01dc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/simple_pdf/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_pdf/static/js/exel.js" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/static/js/exel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_pdf/static/js/manual.js" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/static/js/manual.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/exel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/exel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/exel.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/exel.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/manual.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/manual.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/manual.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/manual.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/staticfiles.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +28,7 @@
     <session id="-180705896">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -25,26 +36,27 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="82" />
-          <entry key="env" value="27" />
+          <entry key="env" value="31" />
           <entry key="gitignore" value="2" />
-          <entry key="html" value="4313" />
-          <entry key="js" value="3420" />
+          <entry key="html" value="4652" />
+          <entry key="js" value="3573" />
           <entry key="py" value="2755" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="82" />
-          <entry key="HTML" value="4314" />
-          <entry key="JavaScript" value="3419" />
-          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="HTML" value="4653" />
+          <entry key="JavaScript" value="3572" />
+          <entry key="PLAIN_TEXT" value="33" />
           <entry key="Python" value="2755" />
         </counts>
       </usages-collector>
@@ -52,14 +64,14 @@
         <counts>
           <entry key="conf" value="1" />
           <entry key="css" value="6" />
-          <entry key="env" value="3" />
+          <entry key="env" value="4" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="65" />
+          <entry key="html" value="73" />
           <entry key="ico" value="1" />
           <entry key="jpg" value="17" />
-          <entry key="js" value="28" />
+          <entry key="js" value="30" />
           <entry key="png" value="1" />
-          <entry key="py" value="51" />
+          <entry key="py" value="55" />
           <entry key="pyi" value="1" />
           <entry key="rnc" value="1" />
           <entry key="sh" value="1" />
@@ -69,11 +81,11 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="65" />
+          <entry key="HTML" value="73" />
           <entry key="Image" value="19" />
-          <entry key="JavaScript" value="28" />
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="51" />
+          <entry key="JavaScript" value="30" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="55" />
           <entry key="PythonStub" value="1" />
           <entry key="RNG Compact" value="1" />
           <entry key="TypeScript" value="1" />
@@ -84,32 +96,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdfcreate/settings.py">
+        <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-852">
-              <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+            <state relative-caret-position="456">
+              <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="123" selection-end-column="76" />
               <folding>
-                <element signature="e#310#319#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simple_pdf/apps.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simple_pdf/admin.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/choose.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -118,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/simple_pdf/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="467">
-              <caret line="303" lean-forward="true" selection-start-line="303" selection-end-line="303" />
+              <caret line="303" selection-start-line="303" selection-end-line="303" />
               <folding>
                 <element signature="e#38#49#0" expanded="true" />
               </folding>
@@ -127,16 +126,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html">
+        <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+            <state relative-caret-position="196">
+              <caret line="126" column="35" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="35" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,20 +144,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/preview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="51" column="28" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="28" />
+            <state relative-caret-position="494">
+              <caret line="47" column="40" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="539">
+              <caret line="104" column="33" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="33" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/manual.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="555">
+              <caret line="249" column="12" selection-start-line="249" selection-start-column="12" selection-end-line="249" selection-end-column="79" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,11 +195,25 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simple_pdf/tests.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/exel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="38" />
+            <state relative-caret-position="524">
+              <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -208,6 +242,7 @@
       <find>media</find>
       <find>ready</find>
       <find>pand</find>
+      <find>manual</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -236,17 +271,17 @@
         <option value="$PROJECT_DIR$/static/css/materialize/materialize.css" />
         <option value="$PROJECT_DIR$/simple_pdf/static/css/materialize/materialize.css" />
         <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/google_analitics.html" />
-        <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/top.html" />
-        <option value="$PROJECT_DIR$/simple_pdf/static/js/manual.js" />
-        <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html" />
-        <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html" />
         <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/preview.html" />
         <option value="$PROJECT_DIR$/simple_pdf/tasks.py" />
         <option value="$PROJECT_DIR$/pdfcreate/settings.py" />
+        <option value="$PROJECT_DIR$/simple_pdf/views.py" />
+        <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/top.html" />
+        <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html" />
+        <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html" />
+        <option value="$PROJECT_DIR$/simple_pdf/static/js/manual.js" />
         <option value="$PROJECT_DIR$/simple_pdf/static/js/exel.js" />
         <option value="$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/simple_pdf/views.py" />
       </list>
     </option>
   </component>
@@ -388,9 +423,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987715" visible="true" weight="0.28898427" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987715" visible="true" weight="0.2932761" />
       <window_info id="Structure" order="1" sideWeight="0.5012285" side_tool="true" weight="0.2532189" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -420,13 +454,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="15747" column="12" selection-start-line="15747" selection-start-column="12" selection-end-line="15747" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/materialize/materialize.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45316" />
@@ -491,13 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/carousel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/sectional.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -509,13 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="70" column="45" lean-forward="true" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -560,13 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/manual.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-640">
-          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pdfcreate/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -574,37 +580,6 @@
           <folding>
             <element signature="e#633#665#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/top.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="53" column="105" selection-start-line="53" selection-start-column="105" selection-end-line="53" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="133" column="55" selection-start-line="133" selection-start-column="55" selection-end-line="133" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="137" selection-start-line="137" selection-end-line="137" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -629,13 +604,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/simple_pdf/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfcreate/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="104" column="16" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+          <folding>
+            <element signature="e#310#319#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -652,33 +634,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/exel.js">
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/shared/top.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/preview.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="28" />
+        <state relative-caret-position="521">
+          <caret line="50" column="192" selection-start-line="50" selection-start-column="192" selection-end-line="50" selection-end-column="192" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html">
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+        <state relative-caret-position="272">
+          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/carousel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="70" column="101" selection-start-line="70" selection-start-column="101" selection-end-line="70" selection-end-column="101" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -693,22 +678,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/simple_pdf/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
-          <caret line="303" lean-forward="true" selection-start-line="303" selection-end-line="303" />
+          <caret line="303" selection-start-line="303" selection-end-line="303" />
           <folding>
             <element signature="e#38#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdfcreate/settings.py">
+    <entry file="file://$USER_HOME$/miniconda/anaconda3/lib/python3.6/site-packages/django/templatetags/static.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-852">
-          <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+        <state relative-caret-position="223">
+          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/preview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/choose.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="123" selection-end-column="76" />
           <folding>
-            <element signature="e#310#319#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/manual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="126" column="35" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#h5#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/manual.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="249" column="12" selection-start-line="249" selection-start-column="12" selection-end-line="249" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/static/js/exel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple_pdf/templates/pdf_create/exel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#h5#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

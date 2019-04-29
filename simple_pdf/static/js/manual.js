@@ -40,7 +40,8 @@ function generate_card() {
     var prev_num = num - 1;
     // $('#btn_add_' + prev_num).addClass('disabled');
     $('#btn_add_' + prev_num).addClass('scale-transition scale-out');
-    $('#btn_remove_' + prev_num).addClass('scale-transition scale-out');
+        $('#btn_remove_' + prev_num).addClass('scale-transition scale-out');
+
 
     var elem = $("#row_" + row);
     // var text = "<div class=\"card\" style=\"width: 18rem;\" id='card_elem_"+ num +"'>";
@@ -110,10 +111,13 @@ function generate_card() {
         "                <div class=\"card hoverable\">\n" +
         "                    <span class=\"card-title\" style='padding-left: 20px;'>#" + num + "</span>\n" +
         "                    <a class=\"btn-floating halfway-right waves-effect\" style='background: #3205F3;' id='btn_add_" + num + "'><i\n" +
-        "                            class=\"material-icons\"  onclick='generate_card()'>add</i></a>\n" +
-        "                    <a class=\"btn-floating halfway-right-bottom waves-effect\" style='background: #3205F3;' id='btn_remove_" + num + "'><i\n" +
-        "                            class=\"material-icons\"  onclick='delete_card()'>remove</i></a>\n" +
-        "                    <div class=\"card-body\">\n" +
+        "                            class=\"material-icons\"  onclick='generate_card()'>add</i></a>\n";
+    if (num != 1) {
+
+        text += "                    <a class=\"btn-floating halfway-right-bottom waves-effect\" style='background: #3205F3;' id='btn_remove_" + num + "'><i\n" +
+        "                            class=\"material-icons\"  onclick='delete_card()'>remove</i></a>\n";
+    }
+     text +=    "                    <div class=\"card-body\">\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"input-field col m11\" >\n" +
         "                                <i class=\"material-icons prefix\" style='padding-left: 10px;'>account_circle</i>\n" +
@@ -242,7 +246,8 @@ function generate_manual_pdf() {
         dataType: 'json',
         success: function (data) {
             $('#progress_manual').hide();
-            window.location = '/preview/' + data['success'];
+            // window.location = '/preview/' + data['success'];
+            window.location = '/media/pdfs/' + data['success'] + "/cutway.pdf";
 
             // alert('yes');
         }

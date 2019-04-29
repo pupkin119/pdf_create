@@ -62,7 +62,8 @@ function upload() {
             $('#progress').hide();
             $('#progress_manual_text').hide();
             // alert('yes');
-            window.location = /preview/ + data['success'];
+            // window.location = /preview/ + data['success'];
+            window.location = '/media/pdfs/' + data['success'] + "/cutway.pdf";
 
         }
 

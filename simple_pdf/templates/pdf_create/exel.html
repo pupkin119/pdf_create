@@ -16,6 +16,10 @@
             crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="{% static 'js/exel.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Ubuntu">
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="{% static 'js/materialize/materialize.js' %}"></script>
@@ -27,7 +31,12 @@
 {% include 'pdf_create/shared/top.html' %}
 
 <div class="row">
-    <h5 class="center-align"> Загрузи данные </h5>
+    <h5 class="center-align" style="font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 30px;
+                                    line-height: 140.62%;">
+        Загрузи данные </h5>
 </div>
 
 {#<div class="row">#}
@@ -42,54 +51,65 @@
 {#</div>#}
 
 
-<div class="wrapper" style="display: flex;
-  align-items: center;
-  justify-content: center;">
-    <div class="row" style="padding-top: 14em;">
-        {#    <a class="waves-effect waves-light btn-large" style="left: 40%;" onclick="generate_manual_pdf();">Перейти дальше</a>#}
-        <div class="col" style="">
+{#<div class="wrapper" style="display: flex;#}
+{#  align-items: center;#}
+{#  justify-content: center;">#}
+<div class="row" style="padding-top: 14em;">
+    {#    <a class="waves-effect waves-light btn-large" style="left: 40%;" onclick="generate_manual_pdf();">Перейти дальше</a>#}
+    {#    <div class="col s7">#}
 
-            <form action="{% url 'simple_pdf:upload_exel' %}" enctype="multipart/form-data" method="post">
-                <div class="file-field input-field">
-                    <div class="row">
-                        <div class="col s6">
+    <form action="{% url 'simple_pdf:upload_exel' %}" enctype="multipart/form-data" method="post">
+        <div class="file-field input-field">
+            <div class="row">
+                <div class="col s4 offset-s4">
 
-                            <div class="btn logtype-btn" style=" background: #3205F3;">
-                                <span>Файл</span>
-                                <input type="file" id="file" name="file" accept=".csv"/>
-                                {#        <input type="file" accept=".csv" name="file_exel" id="file_exel">#}
-                            </div>
-                            <div class="file-path-wrapper ">
-
-                                <input class="file-path validate" type="text">
-                            </div>
-                        </div>
-                        <div class="col s6">
-
-                            <a class="waves-effect waves-light btn logtype-btn" style="background: #3205F3;"
-                               onclick="upload();">Отправить</a>
-                        </div>
-
+                    <div class="btn logtype-btn" style=" background: #3205F3;">
+                        <span>Загрузить CSV с данными</span>
+                        <input type="file" id="file" name="file" accept=".csv"/>
+                        {#        <input type="file" accept=".csv" name="file_exel" id="file_exel">#}
                     </div>
+                    <div class="file-path-wrapper ">
 
+                        <input class="file-path validate" type="text">
+                    </div>
                 </div>
-            </form>
-        </div>
 
-        <div class="row" style="bottom: 10%;">
-            <div class="progress" id="progress_manual" style="display: none">
-                <div class="indeterminate"></div>
+            </div>
+
+        </div>
+        <div class="file-field input-field">
+
+            <div class="col s4 offset-s4" style="align-items: center;">
+
+                <a class="waves-effect waves-light btn logtype-btn" style="background: #3205F3;"
+                   onclick="upload();">Сгенерировать сертификаты</a>
+            </div>
+
+            <div class="row" style="bottom: 15%;">
+                <div class="col s4 offset-s4">
+
+                <div class="progress" id="progress_manual" style="display: none">
+                    <div class="indeterminate"></div>
+                </div>
+                </div>
             </div>
         </div>
 
+    </form>
+    {#    </div>#}
 
+
+</div>
+{#</div>#}
+<div class="row" style="bottom: 20%;">
+    <div id="progress_manual_text" style="display: none">
+        <h5 class="center-align" style="font-family: Montserrat;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 30px;
+                                    line-height: 140.62%;"> Генерация может занять значительное время </h5>
     </div>
 </div>
-        <div class="row" style="bottom: 20%;">
-            <div id="progress_manual_text" style="display: none">
-                <h5 class="center-align"> Генерация может занять значительное время </h5>
-            </div>
-        </div>
 {% include 'pdf_create/shared/google_analitics.html' %}
 
 </body>
