@@ -34,7 +34,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'simple-create-pdf.herokuapp.com', 'www.uplatform.lvdsgn.com', '157.230.118.51']
+ALLOWED_HOSTS = ['127.0.0.1', 'simple-create-pdf.herokuapp.com', 'www.uplatform.lvdsgn.com', '157.230.118.51', 'uplatform.lvdsgn.com']
 
 
 # Application definition
