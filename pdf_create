@@ -7,6 +7,10 @@ server {
         root /home/alex/pdf_create;
     }
 
+    location /media/ {
+        alias /home/alex/pdf_create;
+    }
+
     location / {
         include proxy_params;
         proxy_pass http://unix:/home/alex/pdf_create/pdfcreate/pdfcreate.sock;
