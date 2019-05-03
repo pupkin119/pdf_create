@@ -198,15 +198,21 @@ def manual_pdf(request):
             draw = Drawing()
             with Image(filename='imgs/sertf20.jpg') as image:
                 draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
-                draw.font_size = 186
+                # 19 = 25
+                # draw.font_size = 186
+                draw.font_size = 25*4
                 draw.fill_color = Color('#333333')
                 # name = transform_name(names[i])
                 name = transform_nameV2(names[i], 21)
-                draw.text(340, 2385, name)
-                draw.text(340, 3173, courses[i])
+                course = transform_nameV2(courses[i], 21)
+                # draw.text(340, 2385, name)
+                # draw.text(340, 3173, courses[i])
+                draw.text(205, 1418 + 30, name)
+                draw.text(205, 1888 + 30, course)
                 draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
-                draw.font_size = 100
-                draw.text(684, 5105, town)
+                draw.font_size = 8*5
+                # draw.text(684, 5105, town)
+                draw.text(339+30, 3040, town)
 
 
                 # draw.viewbox(340, 2385, 340 + 2300, 2385 + 400)
@@ -281,16 +287,24 @@ def upload_exel(request):
             draw = Drawing()
             with Image(filename='imgs/sertf20.jpg') as image:
                 draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
-                draw.font_size = 186
+                # 19 
+                # draw.font_size = 186
+                draw.font_size = 25*4
                 draw.fill_color = Color('#333333')
                 # name = transform_name(name)
                 name = transform_nameV2(name, 21)
                 course = transform_nameV2(course, 21)
-                draw.text(340, 2385, name)
-                draw.text(340, 3173, course)
-                draw.font_size = 100
+                draw.text(205, 1418 + 30, name)
+                draw.text(205, 1888 + 30, course)
+                # draw.text(340, 2385, name)
+                # draw.text(340, 3173, course)
+                # 10
+                draw.font_size = 8*5
+                # draw.font_size = 100
                 draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
-                draw.text(684, 5105, town)
+                
+                # draw.text(684, 5105, town)
+                draw.text(339+30, 3040, town)
                 draw(image)
 
                 image.save(filename='imgs/' + str(rand_uuid) +'/img_' + str(i) + '.jpg')

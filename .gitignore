@@ -2,3 +2,4 @@ pdfcreate/__pycache__/
 simple_pdf/__pycache__/
 pdfcreate/__pycache__/.*
 simple_pdf/migrations/__pycache__/
+pdfs/
