@@ -3,10 +3,10 @@ Description=gunicorn daemon
 After=network.target
 
 [Service]
-User=root
+User=alex
 Group=www-data
-WorkingDirectory=/home/root/pdf_create/pdfcreate/pdfcreate
-ExecStart=/root/pdf/bin/gunicorn --access-logfile - --workers 3 --bind unix:/root/pdf_create/pdfcreate/pdfcreate.sock pdfcreate.wsgi:application
+WorkingDirectory=/home/alex/pdf_create
+ExecStart=/home/alex/pdf_create/pdf_env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/alex/pdf_create/pdfcreate/pdfcreate.sock pdfcreate.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
