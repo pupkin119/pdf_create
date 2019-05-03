@@ -3,12 +3,8 @@ server {
     server_name www.uplatform.lvdsgn.com;
 
     location = /favicon.ico { access_log off; log_not_found off; }
-    location /static/ {
+    location /static {
         root /home/alex/pdf_create;
-    }
-
-    location /media/ {
-        alias /home/alex/pdf_create;
     }
 
     location / {

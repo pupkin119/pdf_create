@@ -196,8 +196,10 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MEDIA_ROOT = '/Users/aleksej/pdfcre/django_app/pdfcreate/'
+# MEDIA_ROOT = BASE_DIR
 MEDIA_ROOT = BASE_DIR
 
 MEDIA_URL = '/media/'
+
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
