@@ -26,6 +26,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 # read env
 import environ
 from simple_pdf.tasks import delete_later_pdf
+from fpdf import FPDF
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -181,63 +182,78 @@ import shutil
 @csrf_exempt
 def manual_pdf(request):
     if request.is_ajax() and request.POST:
-        names = request.POST.getlist("names[]")
-        courses = request.POST.getlist("courses[]")
-        town = request.POST['town']
+        try:
+            names = request.POST.getlist("names[]")
+            courses = request.POST.getlist("courses[]")
+            town = request.POST['town']
 
-        page_images = []
-        rand_uuid = uuid.uuid4()
+            page_images = []
+            rand_uuid = uuid.uuid4()
 
-        s = Sertificates.objects.first()
-        s.payment = s.payment + len(courses)
-        s.save()
+            s = Sertificates.objects.first()
+            s.payment = s.payment + len(courses)
+            s.save()
 
-        pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
-        pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
-        for i in np.arange(len(courses)):
-            draw = Drawing()
-            with Image(filename='imgs/sertf20.jpg') as image:
-                draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
-                # 19 = 25
-                # draw.font_size = 186
-                draw.font_size = 25*4
-                draw.fill_color = Color('#333333')
-                # name = transform_name(names[i])
-                name = transform_nameV2(names[i], 21)
-                course = transform_nameV2(courses[i], 21)
-                # draw.text(340, 2385, name)
-                # draw.text(340, 3173, courses[i])
-                draw.text(205, 1418 + 30, name)
-                draw.text(205, 1888 + 30, course)
-                draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
-                draw.font_size = 8*5
-                # draw.text(684, 5105, town)
-                draw.text(339+30, 3040, town)
+            pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+            pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+            for i in np.arange(len(courses)):
+                draw = Drawing()
+                with Image(filename='imgs/sertf20.jpg') as image:
+                    draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
+                    # 19 = 25
+                    # draw.font_size = 186
+                    draw.font_size = 25*4
+                    draw.fill_color = Color('#333333')
+                    # name = transform_name(names[i])
+                    name = transform_nameV2(names[i], 21)
+                    course = transform_nameV2(courses[i], 21)
+                    # draw.text(340, 2385, name)
+                    # draw.text(340, 3173, courses[i])
+                    draw.text(205, 1418 + 30, name)
+                    draw.text(205, 1888 + 30, course)
+                    draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
+                    draw.font_size = 8*5
+                    # draw.text(684, 5105, town)
+                    draw.text(339+30, 3040, town)
 
 
-                # draw.viewbox(340, 2385, 340 + 2300, 2385 + 400)
-                draw(image)
+                    # draw.viewbox(340, 2385, 340 + 2300, 2385 + 400)
+                    draw(image)
 
-                image.save(filename='imgs/'+str(rand_uuid)+'/img_' + str(i) + '.jpg')
+                    image.save(filename='imgs/'+str(rand_uuid)+'/img_' + str(i) + '.jpg')
 
-        im1 = PILImage.open("imgs/" + str(rand_uuid) + "/img_0.jpg")
+            # im1 = PILImage.open("imgs/" + str(rand_uuid) + "/img_0.jpg")
 
-        for i in np.arange(1, len(names)):
-            im2 = PILImage.open("imgs/"+str(rand_uuid)+"/img_" + str(i) +".jpg")
-            page_images.append(im2)
+            # for i in np.arange(1, len(names)):
+            #     im2 = PILImage.open("imgs/"+str(rand_uuid)+"/img_" + str(i) +".jpg")
+            #     page_images.append(im2)
 
-        shutil.rmtree('imgs/' + str(rand_uuid))
+            # shutil.rmtree('imgs/' + str(rand_uuid))
 
-        pdf1_filename = "pdfs/" + str(rand_uuid) + "/cutway.pdf"
+            pdf1_filename = "pdfs/" + str(rand_uuid) + "/cutway.pdf"
 
-        im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
+            # im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
+            pdf = FPDF('P','mm','A4')
+            pdf.set_auto_page_break(0)
 
-        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
-        # scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
+            for i in np.arange(0, len(names)):
+            #     im2 = PILImage.open("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg")
+            # for image in imagelist:
+                pdf.add_page()
+                pdf.image("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg",w=200)
+            pdf.output(pdf1_filename, "F")
 
-        data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
+            scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+            # scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
 
-        return HttpResponse(data, content_type='application/json')
+            data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
+
+            return HttpResponse(data, content_type='application/json')
+
+        except Exception as e:
+            data = json.dumps({'success': None, 'error': True, 'description': "Произошла ошибка \n" + str(e)})
+            return HttpResponse(data, content_type='application/json')
+            
 
 @csrf_exempt
 def manual(request):
@@ -260,76 +276,93 @@ import os
 def upload_exel(request):
     if request.method == 'POST' and request.FILES['file']:
 
-        myfile = request.FILES['file']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        # town = request.POST['town']
-        # print(request.POST['town'])
-        # uploaded_file_url = fs.url(filename)
-        # print(uploaded_file_url)
+        try:
+            myfile = request.FILES['file']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            # town = request.POST['town']
+            # print(request.POST['town'])
+            # uploaded_file_url = fs.url(filename)
+            # print(uploaded_file_url)
 
-        rand_uuid = uuid.uuid4()
-        pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
-        pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+            rand_uuid = uuid.uuid4()
+            pathlib.Path('imgs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
+            pathlib.Path('pdfs/'+ str(rand_uuid)).mkdir(parents=True, exist_ok=True)
 
-        data = pd.read_csv(myfile.name)
+            data = pd.read_csv(myfile.name)
 
-        s = Sertificates.objects.first()
-        s.payment = s.payment + data.count()[0]
-        s.save()
+            s = Sertificates.objects.first()
+            s.payment = s.payment + data.count()[0]
+            s.save()
 
-        for i in np.arange(data.count()[0]):
+            # draw = Drawing()
+            # image_orig = Image(filename='imgs/sertf20.jpg')
+            for i in np.arange(data.count()[0]):
 
-            name = data[data.columns[0]][i]
-            course = data[data.columns[1]][i]
-            town = data[data.columns[2]][i]
+                name = data[data.columns[0]][i]
+                course = data[data.columns[1]][i]
+                town = data[data.columns[2]][i]
 
-            draw = Drawing()
-            with Image(filename='imgs/sertf20.jpg') as image:
-                draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
-                # 19 
-                # draw.font_size = 186
-                draw.font_size = 25*4
-                draw.fill_color = Color('#333333')
-                # name = transform_name(name)
-                name = transform_nameV2(name, 21)
-                course = transform_nameV2(course, 21)
-                draw.text(205, 1418 + 30, name)
-                draw.text(205, 1888 + 30, course)
-                # draw.text(340, 2385, name)
-                # draw.text(340, 3173, course)
-                # 10
-                draw.font_size = 8*5
-                # draw.font_size = 100
-                draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
-                
-                # draw.text(684, 5105, town)
-                draw.text(339+30, 3040, town)
-                draw(image)
+                with Image(filename='imgs/sertf20.jpg') as image:
+                    draw = Drawing()
+                    draw.font = 'open-sans/Montserrat/Montserrat-Bold.ttf'
+                    # 19 
+                    # draw.font_size = 186
+                    draw.font_size = 25*4
+                    draw.fill_color = Color('#333333')
+                    # name = transform_name(name)
+                    name = transform_nameV2(name, 21)
+                    course = transform_nameV2(course, 21)
+                    draw.text(205, 1418 + 30, name)
+                    draw.text(205, 1888 + 30, course)
+                    # draw.text(340, 2385, name)
+                    # draw.text(340, 3173, course)
+                    # 10
+                    draw.font_size = 8*5
+                    # draw.font_size = 100
+                    draw.font = 'open-sans/Montserrat/Montserrat-Regular.ttf'
+                    
+                    # draw.text(684, 5105, town)
+                    draw.text(339+30, 3040, town)
+                    draw(image)
 
-                image.save(filename='imgs/' + str(rand_uuid) +'/img_' + str(i) + '.jpg')
+                    image.save(filename='imgs/' + str(rand_uuid) +'/img_' + str(i) + '.jpg')
 
-        page_images = []
-        for i in np.arange(1, data.count()[0]):
-            im2 = PILImage.open("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg")
-            page_images.append(im2)
 
-        pdf1_filename = "pdfs/" + str(rand_uuid) + "/cutway.pdf"
+            # page_images = []
+            # for i in np.arange(1, data.count()[0]):
+            #     im2 = PILImage.open("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg")
+            #     page_images.append(im2)
 
-        im1 = PILImage.open("imgs/" + str(rand_uuid) + "/img_0.jpg")
+            pdf1_filename = "pdfs/" + str(rand_uuid) + "/cutway.pdf"
 
-        im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
+            # im1 = PILImage.open("imgs/" + str(rand_uuid) + "/img_0.jpg")
 
-        shutil.rmtree('imgs/' + str(rand_uuid))
-        os.remove(myfile.name)
+            # im1.save(pdf1_filename, "PDF", resolution=100.0, save_all=True, append_images=page_images)
+            pdf = FPDF('P','mm','A4')
+            pdf.set_auto_page_break(0)
 
-        scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
-        # scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
+            for i in np.arange(0, data.count()[0]):
+            #     im2 = PILImage.open("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg")
+            # for image in imagelist:
+                pdf.add_page()
+                pdf.image("imgs/" + str(rand_uuid) + "/img_" + str(i) + ".jpg",w=200)
+            pdf.output(pdf1_filename, "F")
 
-        data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
+            shutil.rmtree('imgs/' + str(rand_uuid))
+            os.remove(myfile.name)
 
-        # data = json.dumps({'success': uploaded_file_url})
-        return HttpResponse(data, content_type='application/json')
+            scheduler.enqueue_in(timedelta(days=1), delete_later_pdf, str(rand_uuid))
+            # scheduler.enqueue_in(timedelta(minutes=1), delete_later_pdf, str(rand_uuid))
+
+            data = json.dumps({'success': str(rand_uuid), 'error': None, 'description': None})
+
+            # data = json.dumps({'success': uploaded_file_url})
+            return HttpResponse(data, content_type='application/json')
+
+        except Exception as e:
+            data = json.dumps({'success': None, 'error': True, 'description': "Произошла ошибка \n" + str(e)})
+            return HttpResponse(data, content_type='application/json')
 
 
 @csrf_exempt

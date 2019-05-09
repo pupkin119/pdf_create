@@ -247,11 +247,16 @@ function generate_manual_pdf() {
         },
         dataType: 'json',
         success: function (data) {
-            $('#progress_manual').hide();
-            // window.location = '/preview/' + data['success'];
-            window.location = '/media/pdfs/' + data['success'] + "/cutway.pdf";
-
-            // alert('yes');
+            if (!data['error']){
+                $('#progress_manual').hide();
+                // alert('yes');
+                // window.location = /preview/ + data['success'];
+                window.location = '/media/pdfs/' + data['success'] + "/cutway.pdf";
+            }
+            else {
+                $('#progress_manual').hide();
+                alert(data['description'])
+            }
         }
 
     });

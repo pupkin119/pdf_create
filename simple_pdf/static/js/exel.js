@@ -61,12 +61,18 @@ function upload() {
         processData: false,
         contentType: false,
         success: function (data) {
-            $('#progress').hide();
-            $('#progress_manual_text').hide();
-            // alert('yes');
-            // window.location = /preview/ + data['success'];
-            window.location = '/media/pdfs/' + data['success'] + "/cutway.pdf";
-
+            if (!data['error']){
+                $('#progress').hide();
+                $('#progress_manual_text').hide();
+                // alert('yes');
+                // window.location = /preview/ + data['success'];
+                window.location = '/media/pdfs/' + data['success'] + "/cutway.pdf";
+            }
+            else {
+                $('#progress').hide();
+                $('#progress_manual_text').hide();
+                alert(data['description'])
+            }
         }
 
     });
