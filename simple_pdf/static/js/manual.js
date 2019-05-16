@@ -122,14 +122,14 @@ function generate_card() {
         "                            <div class=\"input-field col m11\" >\n" +
         "                                <i class=\"material-icons prefix\" style='padding-left: 10px;'>account_circle</i>\n" +
         "                                <input  id='name_" + num + "' type=\"text\" >\n" +
-        "                                <label for=\"icon_prefix\">ФИО</label>\n" +
+        "                                <label for='name_" + num + "'>ФИО</label>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"input-field col s11\" >\n" +
         "                                <i class=\"material-icons prefix\" style='padding-left: 10px;'>check_circle</i>\n" +
         "                                <input  id='course_" + num + "' type=\"text\" >\n" +
-        "                                <label for=\"icon_prefix\">Курс</label>\n" +
+        "                                <label for='course_" + num + "'>Курс</label>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
         "                    </div>\n" +
